@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title th:text="${exercise.name}">Exercice</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <th:block th:insert="fragments/css :: css"></th:block>
+    <th:block th:insert="fragments/js :: js2"></th:block>
+</head>
+<body>
+<div class="page-container">
+    <div class="left-content">
+        <div class="mother-grid-inner">
+            <th:block th:insert="fragments/header2 :: header"></th:block>
+            <!--inner block start here-->
+            <div class="inner-block">
+                <div class="chit-chat-layer1">
+                    <div class="col-md-12 mb-5 mt-3">
+                        <h1 th:text="${exercise.name}"></h1>
+                    </div>
+                    <div>
+                    <!-- description -->
+                    <div class="col-md-6 mb-5 mt-3 chit-chat-layer1-left">
+                        <div class="work-progres">
+                            <div class="chit-chat-heading">
+                                déscription
+                            </div>
+                            <div class="table-responsive">
+                                <p th:utext="${exercise.description}"></p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- A faire -->
+                    <div class="col-md-6 mb-5 mt-3 chit-chat-layer1-left">
+                        <div class="work-progres">
+                            <div class="chit-chat-heading">
+                                A faire
+                            </div>
+                            <div class="table-responsive">
+                                <p th:utext="${exercise.todo}"></p>
+                            </div>
+                        </div>
+                    </div>
+                    </div>
+
+                    <!-- A ne pas faire -->
+                    <div class="col-md-12 mb-5 mt-3">
+                        <div class="work-progres">
+                            <div class="chit-chat-heading">
+                                A ne pas faire (actions interdites)
+                            </div>
+                            <div class="table-responsive">
+                                <p th:utext="${exercise.prohibited}"></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <th:block th:insert="fragments/footer :: footer"></th:block>
+        </div>
+    </div>
+    <th:block th:insert="fragments/menu2 :: menu"></th:block>
+</div>
+<th:block th:insert="fragments/js :: js"></th:block>
+</body>
+</html>                     

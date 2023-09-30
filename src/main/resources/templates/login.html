@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Login</title>
+    <th:block th:insert="fragments/css :: css"></th:block>
+    <th:block th:insert="fragments/js :: js2"></th:block>
+</head>
+<body>
+<div class="container mt-4 mb-4">
+    <div class="row">
+            <img class="img-fluid col-4 mr-3 ml-3" src="/images/inpt.png" width="250" height="100">
+            <img class="img-fluid col-4 mr-3 ml-3" src="/images/dgssi.png" width="250" height="100">
+            <img class="img-fluid col-4 mr-3 ml-3" src="/images/anrt.jpg" width="250" height="100">
+            <img class="img-fluid col-4 mr-3 ml-3" src="/images/adept.png" width="250" height="100">
+    </div>
+</div>
+<div class="login-page">
+    <div class="login-main">
+        <div class="login-head">
+            <h1>Login</h1>
+        </div>
+        <div class="login-block">
+            <form action="/login" method="post">
+                <input type="text" name="username" placeholder="Email" required="">
+                <input type="password" name="password" class="lock" placeholder="Mot de passe">
+                <input type="submit" name="Sign In" value="Login">
+                <h3>Pas encore inscrit?<a href="signup"> Inscription</a></h3>
+            </form>
+            <h5><a href="index.html">page d'accueil</a></h5>
+        </div>
+    </div>
+</div>
+<!--inner block end here-->
+<th:block th:insert="fragments/footer :: footer"></th:block>
+<th:block th:insert="fragments/js :: js"></th:block>
+</body>
+</html>
+
+
+                      
+						

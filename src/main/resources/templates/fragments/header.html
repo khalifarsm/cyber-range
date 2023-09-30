@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+<th:block th:fragment="header">
+    <div class="header-main">
+        <div class="header-left">
+            <div class="logo-name">
+                <a href="/"> <h1>Cyber-Range</h1>
+                </a>
+            </div>
+            <div class="clearfix"> </div>
+        </div>
+        <div class="header-right">
+            <div class="profile_details_left"><!--notifications of menu start -->
+                <ul class="nofitications-dropdown">
+                </ul>
+                <div class="clearfix"> </div>
+            </div>
+            <!--notification menu end -->
+            <div class="profile_details">
+                <ul>
+                    <li class="dropdown profile_details_drop">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                            <div class="profile_img">
+                                <span class="prfil-img"><img src="/images/p1.png" height="50" width="50" alt=""> </span>
+                                <div class="user-name">
+                                    <p th:text="${@userService.getAuthenticatedUser().firstName}"></p>
+                                    <span th:text="${@userService.getAuthenticatedUser().email}">Administrator</span>
+                                </div>
+                                <i class="fa fa-angle-down lnr"></i>
+                                <i class="fa fa-angle-up lnr"></i>
+                                <div class="clearfix"></div>
+                            </div>
+                        </a>
+                        <ul class="dropdown-menu drp-mnu">
+                            <li> <a href="/logout"><i class="fa fa-sign-out"></i> Se déconnecter</a> </li>
+                            <li> <a href="/user/labs/close"><i class="fa fa-sign-out"></i> Arreter tout</a> </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+            <div class="clearfix"> </div>
+        </div>
+        <div class="clearfix"> </div>
+    </div>
+    <!-- script-for sticky-nav -->
+    <script>
+		$(document).ready(function() {
+			 var navoffeset=$(".header-main").offset().top;
+			 $(window).scroll(function(){
+				var scrollpos=$(window).scrollTop();
+				if(scrollpos >=navoffeset){
+					$(".header-main").addClass("fixed");
+				}else{
+					$(".header-main").removeClass("fixed");
+				}
+			 });
+
+		});
+		</script>
+    <!-- /script-for sticky-nav -->
+</th:block>
+</body>
+</html>

@@ -1,0 +1,24 @@
+version: "3"
+
+services:
+
+  kali:
+    image: lukaszlach/kali-desktop:xfce-top10
+    ports:
+      - { { port } }:6080
+    environment:
+      - RESOLUTION=1280x600x24
+      - USER=kali
+      - PASSWORD=kali
+      - ROOT_PASSWORD=kali
+    deploy:
+      replicas: 1
+      placement:
+        constraints: [ node.role == manager ]
+
+  victim:
+    image: khalifarsm/metasploitable2
+    deploy:
+      replicas: 1
+      placement:
+        constraints: [node.role == manager]

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>tableau de bord</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <th:block th:insert="fragments/css :: css"></th:block>
+    <th:block th:insert="fragments/js :: js2"></th:block>
+</head>
+<body>
+<div class="page-container">
+    <div class="left-content">
+        <div class="mother-grid-inner">
+            <th:block th:insert="fragments/header :: header"></th:block>
+            <!--inner block start here-->
+            <div class="inner-block">
+                <div class="market-updates">
+                    <div class="col-md-4 market-update-gd">
+                        <div class="market-update-block clr-block-1">
+                            <div class="col-md-8 market-update-left">
+                                <h3>Exercises disponibles</h3>
+                                <h4 th:text="${exercises}"></h4>
+                            </div>
+                            <div class="col-md-4 market-update-right">
+                                <i class="fa fa-file-text-o"> </i>
+                            </div>
+                            <div class="clearfix"> </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 market-update-gd">
+
+                        <div class="market-update-block clr-block-2">
+                            <div class="col-md-8 market-update-left">
+                                <h3>exercices réalisés</h3>
+                                <h4 th:text="${completed}"></h4>
+                            </div>
+                            <div class="col-md-4 market-update-right">
+                                <i class="fa fa-eye"> </i>
+                            </div>
+                            <div class="clearfix"> </div>
+                        </div>
+
+                    </div>
+                    <div class="col-md-4 market-update-gd">
+                        <div class="market-update-block clr-block-3">
+                            <div class="col-md-8 market-update-left">
+                                <h3>Score</h3>
+                                <h4 th:text="${score}"></h4>
+                            </div>
+                            <div class="col-md-4 market-update-right">
+                                <i class="fa fa-file-text-o"> </i>
+                            </div>
+                            <div class="clearfix"> </div>
+                        </div>
+                    </div>
+                    <div class="clearfix"> </div>
+                </div>
+            </div>
+
+            <th:block th:insert="fragments/footer :: footer"></th:block>
+        </div>
+    </div>
+    <th:block th:insert="fragments/menu :: menu"></th:block>
+</div>
+<th:block th:insert="fragments/js :: js"></th:block>
+</body>
+</html>                     

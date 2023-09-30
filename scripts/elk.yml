@@ -1,0 +1,21 @@
+version: "3"
+
+services:
+
+  kibana:
+    image: kibana:8.3.2
+    ports:
+      - 5601:5601
+    environment:
+      - elasticsearch.hosts=http://elastic:9200
+    deploy:
+      replicas: 1
+      placement:
+        constraints: [ node.role == manager ]
+
+  elastic:
+    image: elasticsearch:8.3.2
+    deploy:
+      replicas: 1
+      placement:
+        constraints: [node.role == manager]

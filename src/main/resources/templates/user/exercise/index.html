@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Exercices</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <th:block th:insert="fragments/css :: css"></th:block>
+    <th:block th:insert="fragments/js :: js2"></th:block>
+</head>
+<body>
+<div class="page-container">
+    <div class="left-content">
+        <div class="mother-grid-inner">
+            <th:block th:insert="fragments/header :: header"></th:block>
+            <!--inner block start here-->
+            <div class="inner-block">
+                <div class="chit-chat-layer1">
+                    <div class="col-md-12 pb-5 chit-chat-layer1-left">
+                        <div class="work-progres">
+                            <div class="chit-chat-heading">
+                                Exercises
+                            </div>
+                            <div class="table-responsive">
+                                <table class="table table-hover">
+                                    <thead>
+                                    <tr>
+                                        <th>#</th>
+                                        <th>Exercice</th>
+                                        <th>difficulté</th>
+                                        <th>Catégorie</th>
+                                        <th>temps alloué</th>
+                                        <th>Action</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <tr th:each="exercise : ${exercises}">
+                                        <td th:text="${exercise.id}">1</td>
+                                        <td th:text="${exercise.name}">Face book</td>
+                                        <td th:if="${exercise.difficulty.toString() eq 'EASY'}"><span
+                                                class="label label-success">EASY</span></td>
+                                        <td th:if="${exercise.difficulty.toString() eq 'MEDIUM'}"><span class="label label-success">MEDIUM</span>
+                                        </td>
+                                        <td th:if="${exercise.difficulty.toString() eq 'HARD'}"><span
+                                                class="label label-success">HARD</span></td>
+                                        <td th:text="${exercise.category.name}"></td>
+                                        <td><span class="badge badge-info" th:text="${exercise.timeToComplete}">50%</span>
+                                        </td>
+                                        <td>
+                                            <a class="btn btn-info" th:href="${'/user/exercise/' + exercise.id}">Détails</a>
+                                            <a class="btn btn-primary" th:if="${lab eq null || lab.exercise.id ne exercise.id}" th:href="${'/user/exercise/lab/' + exercise.id}">Lancer</a>
+                                            <a class="btn btn-primary" th:if="${lab ne null && lab.exercise.id eq exercise.id}" th:href="${'/user/exercise/lab/' + exercise.id}">Ouvrir</a>
+                                            <a class="btn btn-danger" th:if="${lab ne null && lab.exercise.id eq exercise.id}" th:href="${'/user/exercise/lab/close/' + exercise.id}">Arrêter</a>
+                                        </td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <th:block th:insert="fragments/footer :: footer"></th:block>
+        </div>
+    </div>
+    <th:block th:insert="fragments/menu :: menu"></th:block>
+</div>
+<th:block th:insert="fragments/js :: js"></th:block>
+</body>
+</html>                     

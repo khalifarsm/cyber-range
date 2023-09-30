@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<title>Login</title>
+	<th:block th:insert="fragments/css :: css"></th:block>
+	<th:block th:insert="fragments/js :: js2"></th:block>
+</head>
+<body>
+<div class="signup-page-main">
+	<div class="signup-main">
+		<div class="signup-head">
+			<h1>Insription</h1>
+		</div>
+		<div class="signup-block">
+			<form action="/signup" method="post" th:object="${user}">
+				<input type="text" th:field="*{firstName}" placeholder="Prénom" required>
+				<input type="text" th:field="*{lastName}" placeholder="Nom" required>
+				<input type="text" name="email" th:field="*{email}" placeholder="Email" required="">
+				<input type="password" name="password" th:field="*{password}" class="lock" placeholder="Mot de passe">
+				<div class="forgot-top-grids">
+					<div class="forgot-grid">
+						<ul>
+							<li>
+								<input type="checkbox" id="brand1" value="">
+								<label for="brand1"><span></span>j'ai lu et j'accepte les termes et conditions</label>
+							</li>
+						</ul>
+					</div>
+
+					<div class="clearfix"> </div>
+				</div>
+				<input type="submit" name="Sign In" value="Sign up">
+			</form>
+			<div class="sign-down">
+				<h4>Vous avez un compte? <a href="/login"> Login.</a></h4>
+			</div>
+		</div>
+	</div>
+</div>
+<th:block th:insert="fragments/footer :: footer"></th:block>
+<th:block th:insert="fragments/js :: js"></th:block>
+</body>
+</html>
+
+
+
+

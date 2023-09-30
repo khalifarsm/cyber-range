@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+<th:block th:fragment="menu">
+    <!--slider menu-->
+    <div class="sidebar-menu">
+        <div class="logo"> <a href="#" class="sidebar-icon"> <span class="fa fa-bars"></span> </a> <a href="#"> <span id="logo" ></span>
+            <!--<img id="logo" src="" alt="Logo"/>-->
+        </a> </div>
+        <div class="menu">
+            <ul id="menu" >
+                <li id="menu-home" ><a href="/user"><i class="fa fa-tachometer"></i><span>Dashboard</span></a></li>
+                <li id="menu-comunicacao" ><a href="/user/exercise"><i class="fa fa-book nav_icon"></i><span>Exercices</span><span class="fa fa-angle-right" style="float: right"></span></a>
+                </li>
+                <li id="menu-academico" ><a href="/user/labs"><i class="fa fa-file-text"></i><span>Exercices Réalisés</span><span class="fa fa-angle-right" style="float: right"></span></a>
+                </li>
+                <li id="men" ><a href="/user/labs/running"><i class="fa fa-file-text"></i><span>Exercices En Cours</span><span class="fa fa-angle-right" style="float: right"></span></a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="clearfix"> </div>
+</th:block>
+</body>
+</html>

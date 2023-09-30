@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Exercices Réalisés</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <th:block th:insert="fragments/css :: css"></th:block>
+    <th:block th:insert="fragments/js :: js2"></th:block>
+</head>
+<body>
+<div class="page-container">
+    <div class="left-content">
+        <div class="mother-grid-inner">
+            <th:block th:insert="fragments/header2 :: header"></th:block>
+            <!--inner block start here-->
+            <div class="inner-block">
+                <div class="chit-chat-layer1">
+                    <div class="col-md-12 pb-5 chit-chat-layer1-left">
+                        <div class="work-progres">
+                            <div class="chit-chat-heading">
+                                Exercises
+                            </div>
+                            <div class="table-responsive">
+                                <table class="table table-hover">
+                                    <thead>
+                                    <tr>
+                                        <th>#</th>
+                                        <th>Utilisateur</th>
+                                        <th>Exercice</th>
+                                        <th>difficulté</th>
+                                        <th>Catégorie</th>
+                                        <th>temps alloué</th>
+                                        <th>Score</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <tr th:each="lab : ${labs}">
+                                        <td th:text="${lab.exercise.id}">1</td>
+                                        <td th:text="${lab.user.email}">1</td>
+                                        <td th:text="${lab.exercise.name}">Face book</td>
+                                        <td th:if="${lab.exercise.difficulty.toString() eq 'EASY'}"><span
+                                                class="label label-success">EASY</span></td>
+                                        <td th:if="${lab.exercise.difficulty.toString() eq 'MEDIUM'}"><span class="label label-success">MEDIUM</span>
+                                        </td>
+                                        <td th:if="${lab.exercise.difficulty.toString() eq 'HARD'}"><span
+                                                class="label label-success">HARD</span></td>
+                                        <td th:text="${lab.exercise.category.name}"></td>
+                                        <td><span class="badge badge-info" th:text="${lab.exercise.timeToComplete}">50%</span>
+                                        </td>
+                                        <td th:text="${lab.score}">
+                                        </td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <th:block th:insert="fragments/footer :: footer"></th:block>
+        </div>
+    </div>
+    <th:block th:insert="fragments/menu2 :: menu"></th:block>
+</div>
+<th:block th:insert="fragments/js :: js"></th:block>
+</body>
+</html>                     

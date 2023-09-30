@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title th:text="${lab.exercise.name}">Exercice</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <th:block th:insert="fragments/css :: css"></th:block>
+    <th:block th:insert="fragments/js :: js2"></th:block>
+</head>
+<body>
+<div class="page-container">
+    <div class="left-content">
+        <div class="mother-grid-inner">
+            <th:block th:insert="fragments/header :: header"></th:block>
+            <!--inner block start here-->
+            <div class="inner-block">
+                <div class="market-updates">
+                    <div class="col-md-4 market-update-gd">
+                        <div class="market-update-block clr-block-1">
+                            <div class="col-md-8 market-update-left">
+                                <h3>Détails</h3>
+                                <p>accedez aux details de l'exercice <a th:href="${'/user/exercise/'+lab.exercise.id}" target="_blank">ICI</a></p>
+                            </div>
+                            <div class="col-md-4 market-update-right">
+                                <i class="fa fa-file-text-o"> </i>
+                            </div>
+                            <div class="clearfix"> </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 market-update-gd">
+
+                        <div class="market-update-block clr-block-2">
+                            <div class="col-md-8 market-update-left">
+                                <h3>Machine</h3>
+                                <p>acceder a votre machine en plein ecran <a th:href="${'http://localhost:'+lab.port+'/vnc_auto.html'}" target="_blank">ICI</a></p>
+                            </div>
+                            <div class="col-md-4 market-update-right">
+                                <i class="fa fa-eye"> </i>
+                            </div>
+                            <div class="clearfix"> </div>
+                        </div>
+
+                    </div>
+                    <div class="col-md-4 market-update-gd">
+                        <div class="market-update-block clr-block-3">
+                            <div class="col-md-8 market-update-left">
+                                <h3>Réponses</h3>
+                                <h4 th:text="${'score : '+lab.score}"></h4>
+                                <p>accedez a cette page pour envoyer vos réponses <a th:href="${'/user/exercise/answer/'+lab.exercise.id}" target="_blank">ICI</a></p>
+                            </div>
+                            <div class="col-md-4 market-update-right">
+                                <i class="fa fa-file-text-o"> </i>
+                            </div>
+                            <div class="clearfix"> </div>
+                        </div>
+                    </div>
+                    <div class="clearfix"> </div>
+                </div>
+                <div class="chit-chat-layer1">
+                    <div class="col-md-12 mb-5 mt-3">
+                        <h1 th:utext="${lab.exercise.name}"></h1>
+                    </div>
+                    <div>
+                        <!-- description -->
+                        <div class="col-md-12 mb-5 mt-3 chit-chat-layer1-left">
+                            <div class="work-progres">
+                                <form th:each="question:${questions}" method="post" action="/user/exercise/answer">
+                                    <input type="hidden" name="exercise" th:value="${lab.exercise.id}">
+                                    <input type="hidden" name="question" th:value="${question.id}">
+                                    <!-- description -->
+                                    <div class="col-md-12 mb-5 mt-3 chit-chat-layer1-left">
+                                        <div class="work-progres">
+                                            <div class="chit-chat-heading">
+                                                Question
+                                            </div>
+                                            <div class="table-responsive">
+                                                <p th:text="${question.question}"></p>
+                                            </div>
+                                            <input type="text" placeholder="reponse" name="answer">
+                                            <button class="btn btn-submit" type="submit">Envoyer</button>
+                                        </div>
+                                    </div>
+                                </form>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <th:block th:insert="fragments/footer :: footer"></th:block>
+        </div>
+    </div>
+    <th:block th:insert="fragments/menu :: menu"></th:block>
+</div>
+<th:block th:insert="fragments/js :: js"></th:block>
+</body>
+</html>

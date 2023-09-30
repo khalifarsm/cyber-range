@@ -1,0 +1,24 @@
+version: "3"
+
+services:
+
+  kali:
+    image: khalifarsm/kali
+    ports:
+      - { { port } }:6080
+    environment:
+      - RESOLUTION=1280x600x24
+      - USER=kali
+      - PASSWORD=kali
+      - ROOT_PASSWORD=kali
+    deploy:
+      replicas: 1
+      placement:
+        constraints: [ node.role == manager ]
+
+  victim:
+    image: khalifarsm/api-sql-injection
+    deploy:
+      replicas: 1
+      placement:
+        constraints: [node.role == manager]

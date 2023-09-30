@@ -1,0 +1,28 @@
+failed to get console mode for stdout: The handle is invalid.
+[1A[1B[0G[?25l[+] Building 0.0s (0/1)                                                         
+[?25h[1A[0G[?25l[+] Building 0.1s (8/9)                                                         
+[34m => [internal] load build context                                          0.0s
+[0m[34m => => transferring context: 35B                                           0.0s
+[0m[34m => CACHED [2/4] RUN apt update && apt -y upgrade && apt install -y git &  0.0s
+[0m[34m => CACHED [3/4] RUN alias volatility="python2.7 /opt/volatility/vol.py"   0.0s
+[0m[34m => CACHED [4/4] COPY memory.vmem /root/memory.vmem                        0.0s
+[0m => exporting to image                                                     0.0s
+[34m => => exporting layers                                                    0.0s
+[0m => => writing image sha256:de839ef1637481cd76000a3aaf9a15e00632852dd5695  0.0s
+[?25h[1A[1A[1A[1A[1A[1A[1A[1A[1A[0G[?25l[+] Building 0.2s (9/9) FINISHED                                                
+[34m => [internal] load build definition from Dockerfile                       0.0s
+[0m[34m => => transferring dockerfile: 32B                                        0.0s
+[0m[34m => [internal] load .dockerignore                                          0.0s
+[0m[34m => => transferring context: 2B                                            0.0s
+[0m[34m => [internal] load metadata for docker.io/dorowu/ubuntu-desktop-lxde-vnc  0.0s
+[0m[34m => [1/4] FROM docker.io/dorowu/ubuntu-desktop-lxde-vnc                    0.0s
+[0m[34m => [internal] load build context                                          0.0s
+[0m[34m => => transferring context: 35B                                           0.0s
+[0m[34m => CACHED [2/4] RUN apt update && apt -y upgrade && apt install -y git &  0.0s
+[0m[34m => CACHED [3/4] RUN alias volatility="python2.7 /opt/volatility/vol.py"   0.0s
+[0m[34m => CACHED [4/4] COPY memory.vmem /root/memory.vmem                        0.0s
+[0m[34m => exporting to image                                                     0.1s
+[0m[34m => => exporting layers                                                    0.0s
+[0m[34m => => writing image sha256:de839ef1637481cd76000a3aaf9a15e00632852dd5695  0.0s
+[0m[34m => => naming to docker.io/khalifarsm/volatility                           0.0s
+[0m[?25h
